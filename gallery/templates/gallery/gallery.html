@@ -1,0 +1,21 @@
+{% load static %}
+
+<html>
+<head>
+  <title>恋与图鉴</title>
+  <link rel="stylesheet" href="{% static 'css/gallery.css' %}">
+</head>
+
+<div class="row">
+{% for c in card_list %}
+    <div class="column">
+        <div class="card">
+          <img src="{{ c.img_url }}" style="width:100%" >
+          <div class="container">
+            <h4>{{c.card_title}}</h4>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+</html>
