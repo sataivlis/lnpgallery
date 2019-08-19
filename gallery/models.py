@@ -12,7 +12,8 @@ class Character(models.Model):
 class Card(models.Model):
     card_character = models.ForeignKey(Character, on_delete=models.CASCADE)
     card_title = models.CharField(max_length=10)
-    img_url = models.TextField()
+    img_url_before = models.TextField()
+    img_url_after = models.TextField()
 
     def __str__(self):
         return self.card_title

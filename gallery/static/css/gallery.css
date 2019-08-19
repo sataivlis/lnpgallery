@@ -2,6 +2,8 @@
   box-sizing: border-box;
 }
 
+/* cards */
+
 .column {
   float: left;
   width: 25%;
@@ -38,4 +40,27 @@
     display: block;
     margin-bottom: 20px;
   }
+}
+
+/* buttons */
+
+.button {
+  background-color: #e7e7e7;
+  border: 1px solid #e7e7e7;
+  color: black;
+  text-align: center;
+  display: inline-block;
+  font-size: 14px;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+.button:hover {background-color: white;}
+
+.buttonB {
+  background-color: #e7e7e7;
+}
+
+.buttonA {
+  background-color: #e7e7e7;
 }
