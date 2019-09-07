@@ -6,16 +6,80 @@
   <link rel="stylesheet" href="{% static 'css/gallery.css' %}">
 </head>
 
+<ul>
+  <li><a href="/">主页</a></li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">角色</a>
+    <form class="dropdown-content">
+      {%  for c in character_name %}
+      <a href="{% url 'chara_card' pk=c.pk %}"> {{ c.name }} </a>
+      {% endfor %}
+    </div>
+  </li>
+</ul>
+
 <div class="row">
-{% for c in card_list %}
+  {% block content %}
+  {% endblock %}
+  {% for c in card_list %}
     <div class="column">
         <div class="card">
-          <img src="{{ c.img_url }}" style="width:100%" >
+          <img class="b_evol" src="{{ c.img_url_before }}" style="width:100%;" />
+          <img class="a_evol" src="{{ c.img_url_after }}" style="width:100%;display:none;" />
           <div class="container">
-            <h4>{{c.card_title}}</h4>
+            <h2>{{ c.card_title }}</h2>
+            <button class="button buttonB" onclick="changeImg1(this)" type="button">进化前</button>
+            <button class="button buttonA" onclick="changeImg2(this)" type="button">进化后</button>
+          </div>
         </div>
       </div>
-    </div>
-  {% endfor %}
-</div>
+    {% endfor %}
+  </div>
+
+<script>
+var elements = document.getElementsByClassName("card");
+console.log(elements);
+
+var b_evol = document.getElementsByClassName("b_evol");
+var a_evol = document.getElementsByClassName("a_evol");
+
+var b_button = document.getElementsByClassName("buttonB");
+var a_button = document.getElementsByClassName("buttonA");
+
+var len = b_evol.length;
+
+// assign unique ID to button and img class;
+for (var i = 0; i < len; i++) {
+  b_button[i].id = i;
+  b_evol[i].id = "c" + i;
+  // console.log(b_button[i].id);
+}
+for (var i = 0; i < len; i++) {
+  a_button[i].id = i + len;
+  a_evol[i].id = "c" + (i + len);
+  // console.log(a_button[i].id);
+}
+
+function changeImg1(ele) {
+//    console.log(ele.id);
+  var x = parseInt(ele.id) + parseInt(len);
+//    console.log(x);
+  if(document.getElementById("c" + ele.id).style.display == "none") {
+    document.getElementById("c" + ele.id).style.display = "";
+    document.getElementById("c" + x).style.display = "none";
+  }
+}
+
+function changeImg2(ele) {
+  // console.log(ele.id);
+  var x = parseInt(ele.id) - parseInt(len);
+  // console.log(x);
+  // console.log("c" + x);
+  if(document.getElementById("c" + ele.id).style.display == "none") {
+    document.getElementById("c" + ele.id).style.display = "";
+    document.getElementById("c" + x).style.display = "none";
+  }
+}
+</script>
+
 </html>

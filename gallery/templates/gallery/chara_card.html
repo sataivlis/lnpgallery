@@ -1,0 +1,21 @@
+{% extends 'gallery/gallery.html' %}
+
+{% block content %}
+
+{% if pk == 1 %}
+<h1 class="h1 h1l">{{ character_filter }}</h1>
+{% endif %}
+
+{% if pk == 2 %}
+<h1 class="h1 h1z">{{ character_filter }}</h1>
+{% endif %}
+
+{% if pk == 3 %}
+<h1 class="h1 h1x">{{ character_filter }}</h1>
+{% endif %}
+
+{% if pk == 4 %}
+<h1 class="h1 h1b">{{ character_filter }}</h1>
+{% endif %}
+
+{% endblock %}
