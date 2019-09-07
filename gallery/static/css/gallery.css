@@ -37,7 +37,7 @@
 
 h2 {
   color: white;
-  text-shadow: 2px 2px #f5aecb;
+  text-shadow: 2px 2px 4px #b3467c;
 }
 
 /* cards */
@@ -58,7 +58,7 @@ h2 {
 
 /* Card effect */
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 #42162b61;
   padding: 16px;
 }
 
@@ -118,7 +118,7 @@ ul {
   margin-top: 5px;
   padding: 0;
   overflow: hidden;
-  background-color: #ffd5e6;
+  background-color: #a25e80;
 }
 
 li {
